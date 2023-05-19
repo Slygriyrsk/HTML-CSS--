@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css" type="text/css">
+    <title>Cat Lists</title>
+</head>
+<body>
+    <header>
+        <h1>CatPhotoApp</h1>
+        <h2>Cat Photos</h2>
+        <p>see more<a href="https://www.freecatphotoapp.com/"><abbr title="cat photos"></abbr>
+            cat photos</abbr></a> in our gallery.</p>
+           <img src="relaxing-cat.jpg">
+           <h2>Cat Lists</h2>
+           <h3>Things cats love:</h3>
+           <ul>
+            <li>cat nip</li>
+            <li>laser pointers</li>
+            <li>lasanga</li>
+            </ul>
+            
+            <img src="lasagna.jpg">
+            <figcaption>
+                Cats <em>love </em>lasanga.
+            </figcaption>
+            <h3>Top 3 things cats hate:</h3>
+            <ol>
+                <li>flea treatment</li>
+                <li>thunder</li>
+                <li>other cats</li>
+            </ol>
+            <img src="running-cats.jpg">
+            <figcaption>
+                Cats <strong>hate </strong>other cats.
+            </figcaption>
+            <h2>Cat Form</h2>
+            <form action="https://freecatphotoapp.com/get" method="get">
+                <fieldset>
+                    <legend>Is your cat an indoor or outdoor cat?</legend>
+                    <p>
+                        <input type="radio" name="cat" id="Indoor" value="Indoor">
+                        <label for="Indoor">Indoor</label> 
+                        <input type="radio" name="cat" id="Outdoor" value="Outdoor">
+                        <label for="Outdoor">Outdoor</label> 
+                    </p>
+                </fieldset><br>
+                <fieldset>
+                    <legend>What's your cat's personality?</legend>
+                    <p>
+                        <input type="checkbox" name="cat" id="Loving" value="Loving">
+                        <label for="Loving">Loving</label> 
+                        <input type="checkbox" name="cat" id="Lazy" value="Lazy">
+                        <label for="Lazy">Lazy</label> 
+                        <input type="checkbox" name="cat" id="Energic" value="Energic">
+                        <label for="Energic">Energic</label> 
+                    </p>
+                </fieldset>
+                </form>
+        <fieldset>
+            <label for="message"></label>
+            <input type="text" id="LastName"
+            placeholder="cat photo URL" autocomplete="on" required>
+         <button type="submit" formaction="https://www.freecatphotoapp.com/">Submit</button>
+         
+        </fieldset>
+        
+    </header>
+    <footer>
+        <p>No Copyright - <a href="freeCodeCamp.org">freeCodeCamp.org</a></p>
+    </footer>
+</body>
+</html>
