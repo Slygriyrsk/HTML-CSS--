@@ -1,59 +1,95 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Ubuntu:wght@300&display=swap");
-html,
+
 body {
-  height: 100%;
-  width: 100%;
-  font-family: "Roboto", sans-serif;
-}
-
-.button {
-  width: 66px;
-  padding: 20px;
-  margin: 0 3px;
-  border: 2px solid black;
-  border-radius: 9px;
-  cursor: pointer;
-}
-
-.row {
-  margin: 8px 0;
-}
-.row input {
-  width: 291px;
-  font-size: 20px;
+  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 10px 0px;
-  border: 2px solid black;
-  border-radius: 5px;
+  padding: 0;
 }
 
-# utils.css
-
-.text-center {
+.calculator {
+  max-width: 300px;
+  margin: 50px auto;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  background-color: #f8f8f8;
   text-align: center;
 }
 
-.bg-red {
-  background: red;
-}
 
-.mx-auto {
-  margin: auto;
-}
-
-.flex {
-  display: flex;
-}
-.flex-col {
-  flex-direction: column;
-}
-
-.items-center {
-  align-items: center;
+.calculator-title {
+  background-color: #333;
+  color: #fff;
+  margin: 0;
+  padding: 10px;
+  font-size: 1.5em;
 }
 
 
-.row :nth-child(4) {
-  background-color: #ff8c00;
-  color: whitesmoke;
+.calculator-display {
+  width: 100%;
+  height: 50px;
+  font-size: 1.5em;
+  border: none;
+  background-color: #fff;
+  text-align: right;
+  padding: 10px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+
+.calculator-keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  padding: 10px;
+}
+
+/* Calculator key button style */
+.calculator-key {
+  width: 100%;
+  height: 50px;
+  font-size: 1.2em;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.calculator-key:hover {
+  background-color: #555;
+}
+
+
+.calculator-key[data-action="clear"] {
+  background-color: #e74c3c;
+}
+
+
+.calculator-key[data-action="calculate"] {
+  background-color: #3498db;
+}
+
+
+.calculator-key[data-action="operator"] {
+  background-color: #f39c12;
+}
+
+
+.calculator-key[data-action="append"][data-key="."] {
+  background-color: #27ae60;
+}
+
+
+.calculator-key[data-action="append"][data-key="0"] {
+  grid-column: span 2;
+}
+
+
+.calculator-key[data-action="cancel"] {
+  background-color: #e74c3c;
+  grid-column: span 2;
+  grid-row: span 1;
 }
