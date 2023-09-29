@@ -1,17 +1,65 @@
-let string = "";
-let buttons = document.querySelectorAll(".button");
-Array.from(buttons).forEach((button) => {
-  button.addEventListener("click", (e) => {
-    if (e.target.innerHTML == "=") {
-      string = eval(string);
-      document.querySelector("input").value = string;
-    } else if (e.target.innerHTML == "C") {
-      string = "";
-      document.querySelector("input").value = string;
-    } else {
-      console.log(e.target);
-      string = string + e.target.innerHTML;
-      document.querySelector("input").value = string;
+let displayValue = "";
+let pendingValue = "";
+let operator = null;
+
+const calculatorDisplay = document.querySelector(".calculator-display");
+const calculatorKeys = document.querySelectorAll(".calculator-key");
+
+calculatorKeys.forEach((key) => {
+  key.addEventListener("click", () => {
+    const keyValue = key.textContent;
+    const keyAction = key.getAttribute("data-action");
+
+    if (keyAction === "append") {
+      if (displayValue === "0" || calculatorDisplay.value === "0") {
+        displayValue = keyValue;
+      } else {
+        displayValue += keyValue;
+      }
     }
+
+    if (keyAction === "operator") {
+      operator = keyValue;
+      pendingValue = displayValue;
+      displayValue = "";
+    }
+
+    if (keyAction === "clear") {
+      displayValue = "";
+      pendingValue = "";
+      operator = null;
+    }
+
+    if (keyAction === "calculate") {
+      if (operator && pendingValue !== "") {
+        switch (operator) {
+          case "+":
+            displayValue = parseFloat(pendingValue) + parseFloat(displayValue);
+            break;
+          case "-":
+            displayValue = parseFloat(pendingValue) - parseFloat(displayValue);
+            break;
+          case "*":
+            displayValue = parseFloat(pendingValue) * parseFloat(displayValue);
+            break;
+          case "/":
+            if (parseFloat(displayValue) !== 0) {
+              displayValue =
+                parseFloat(pendingValue) / parseFloat(displayValue);
+            } else {
+              displayValue = "Error";
+            }
+            break;
+        }
+        operator = null;
+        pendingValue = "";
+      }
+    }
+
+    if (keyAction === "cancel") {
+      displayValue = "";
+    }
+
+    calculatorDisplay.value = displayValue;
   });
 });
